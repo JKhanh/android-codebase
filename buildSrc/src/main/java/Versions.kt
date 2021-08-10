@@ -1,0 +1,15 @@
+object Versions {
+    const val core = "1.6.0"
+    const val gradlePlugin = "4.2.1"
+    const val kotlin = "1.5.10"
+    const val timber = "4.7.1"
+    const val appCompat = "1.3.1"
+    const val material = "1.4.0"
+    const val constraintLayout = "1.1.3"
+    const val jUnit = "4.12"
+    const val junitExt = "1.1.3"
+    const val espresso = "3.4.0"
+    const val compose = "1.0.1"
+    const val lifecycleRuntime = "2.3.1"
+    const val composeActivity = "1.3.1"
+}
