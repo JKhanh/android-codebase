@@ -20,4 +20,5 @@ object Dependencies {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val composeJunit = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeUiTool = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 }
