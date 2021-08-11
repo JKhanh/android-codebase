@@ -16,3 +16,5 @@ rootProject.name = "Github Discover"
 include ':app'
 include ':common'
 include ':remote'
+include ':features'
+include ':features:home'
