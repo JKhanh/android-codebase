@@ -1,0 +1,10 @@
+apply from: '../android_commons.gradle'
+
+dependencies {
+    implementation project(path: ':common')
+    implementation Libs.retrofit
+    implementation Libs.retrofit2_kotlin_coroutines_adapter
+    implementation Libs.logging_interceptor
+    implementation Libs.stetho
+    implementation Libs.stetho_okhttp3
+}

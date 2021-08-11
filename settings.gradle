@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Github Discover"
 include ':app'
+include ':common'
+include ':remote'
