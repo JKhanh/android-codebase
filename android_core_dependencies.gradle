@@ -1,0 +1,13 @@
+/**
+ * Shared dependencies between modules
+ */
+dependencies {
+    implementation Libs.kotlinx_coroutines_core
+    implementation Libs.kotlinx_coroutines_android
+    implementation Libs.appcompat
+    implementation Libs.core_ktx
+    implementation Libs.constraintlayout
+    implementation Libs.lifecycle_viewmodel_ktx
+    implementation Libs.activity_ktx
+    implementation Libs.fragment_ktx
+}

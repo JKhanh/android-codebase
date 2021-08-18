@@ -1,13 +1,13 @@
+apply plugin: 'com.android.library'
 apply from: '../android_commons.gradle'
 apply plugin: 'kotlinx-serialization'
 
 dependencies {
     implementation project(path: ':common')
-    implementation Libs.retrofit
     implementation Libs.retrofit2_kotlin_coroutines_adapter
     implementation Libs.logging_interceptor
     implementation Libs.stetho
     implementation Libs.stetho_okhttp3
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation Libs.kotlinx_serialization_json
+    implementation Libs.retrofit2_kotlinx_serialization_converter
 }
