@@ -6,6 +6,8 @@ apply plugin: 'kotlinx-serialization'
 dependencies {
     implementation project(path: ':common')
     implementation project(path: ':remote')
+    implementation Dependencies.materialDesign
+
     implementation Libs.retrofit
     implementation Libs.kotlinx_serialization_json
 

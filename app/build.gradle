@@ -48,6 +48,7 @@ dependencies {
     implementation Libs.logging_interceptor
     implementation Libs.stetho
     implementation Libs.stetho_okhttp3
+    implementation Libs.room_ktx
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.junitExt
     androidTestImplementation Dependencies.espresso

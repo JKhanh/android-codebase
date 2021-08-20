@@ -8,6 +8,7 @@ dependencies {
     implementation Libs.core_ktx
     implementation Libs.constraintlayout
     implementation Libs.lifecycle_viewmodel_ktx
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02"
     implementation Libs.activity_ktx
     implementation Libs.fragment_ktx
 }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface GithubService {
-    @GET("search/user")
+    @GET("search/users")
     suspend fun getAllUser(
         @Query("q") query: String,
         @Query("sort") sort: String = "followers"

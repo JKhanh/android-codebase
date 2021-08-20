@@ -40,7 +40,7 @@ class CallAdapterFactory private constructor() : CallAdapter.Factory() {
         }
 
         check (responseType is ParameterizedType) {
-            "Response must be parameterized as Resource2<Foo> or Resource2<out Foo>"
+            "Response must be parameterized as Resource<Foo> or Resource<out Foo>"
         }
 
         val successBodyType = getParameterUpperBound(0, responseType)
@@ -64,7 +64,7 @@ class CallAdapterFactory private constructor() : CallAdapter.Factory() {
 
     internal class ResourceCall<S: Any>(private val delegate: Call<S>, private val converter: Converter<ResponseBody, Resource<S>>) : Call<Resource<S>> {
         override fun enqueue(callback: Callback<Resource<S>>) {
-            Timber.d("EO-75 Resource2Call enqueue()")
+            Timber.d("EO-75 ResourceCall enqueue()")
 
             delegate.enqueue(object : Callback<S> {
                 override fun onFailure(call: Call<S>, t: Throwable) {
@@ -75,7 +75,7 @@ class CallAdapterFactory private constructor() : CallAdapter.Factory() {
                         //SSLHandshakeException is thrown when user's internet connection is disconnected
                         //before the server can return response
                         else -> {
-                            Resource.error(UnknownException("Unknown exception"), null)
+                            Resource.error(UnknownException("Unknown exception ${t.message}"), null)
                         }
                     }
                     callback.onResponse(this@ResourceCall, Response.success(apiResponse))

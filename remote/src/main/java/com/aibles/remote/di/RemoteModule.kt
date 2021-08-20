@@ -1,5 +1,6 @@
 package com.aibles.remote.di
 
+import com.aibles.remote.CallAdapterFactory
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -48,6 +49,7 @@ object RemoteModule {
             .client(client)
             .baseUrl("https://api.github.com/")
             .addConverterFactory(json.asConverterFactory(contentType))
+            .addCallAdapterFactory(CallAdapterFactory())
             .build()
     }
 }

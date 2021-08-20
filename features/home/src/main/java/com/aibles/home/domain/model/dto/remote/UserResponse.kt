@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class UserResponse(
     @SerialName("total_count") val totalCount: Int,
-    @SerialName("incomplete_result") val incompleteResult: Boolean,
+    @SerialName("incomplete_results") val incompleteResult: Boolean,
     @SerialName("items") val items: List<UserRemote>
 )
