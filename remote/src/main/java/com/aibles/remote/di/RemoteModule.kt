@@ -1,5 +1,6 @@
 package com.aibles.remote.di
 
+import com.aibles.remote.CallAdapterFactory
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -17,14 +18,17 @@ import javax.inject.Singleton
 @Module
 object RemoteModule {
 
+    @Singleton
     @Provides
     fun provideHttpLogging() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
+    @Singleton
     @Provides
     fun provideStetho() = StethoInterceptor()
 
+    @Singleton
     @Provides
     fun provideClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
@@ -39,11 +43,13 @@ object RemoteModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         val contentType = "application/json".toMediaType()
+        val json = Json { ignoreUnknownKeys = true }
 
         return Retrofit.Builder()
             .client(client)
             .baseUrl("https://api.github.com/")
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .addCallAdapterFactory(CallAdapterFactory())
             .build()
     }
 }

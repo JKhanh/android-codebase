@@ -1,4 +1,4 @@
-package com.aibles.gitdiscover.ui.theme
+package com.aibles.common.ui
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

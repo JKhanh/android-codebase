@@ -1,3 +1,4 @@
+apply plugin: 'com.android.application'
 apply from: '../android_commons.gradle'
 
 android {
@@ -22,16 +23,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-        useIR = true
-    }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion Versions.compose
-    }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -41,19 +32,24 @@ android {
 
 dependencies {
 
+    implementation project(':common')
+    implementation project(':remote')
+    implementation project(':navigation')
+    implementation project(':features:home')
+
     implementation Dependencies.core
     implementation Dependencies.appCompat
     implementation Dependencies.materialDesign
-    implementation Dependencies.composeUi
-    implementation Dependencies.composeMaterial
-    implementation Dependencies.composeUiPreview
     implementation Dependencies.lifecycleRuntime
-    implementation Dependencies.composeActivity
     implementation Libs.coil
     implementation Libs.logger
+    implementation Libs.navigation_fragment_ktx
+    implementation Libs.navigation_ui_ktx
+    implementation Libs.logging_interceptor
+    implementation Libs.stetho
+    implementation Libs.stetho_okhttp3
+    implementation Libs.room_ktx
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.junitExt
     androidTestImplementation Dependencies.espresso
-    androidTestImplementation Dependencies.composeJunit
-    debugImplementation Dependencies.composeUiTool
 }

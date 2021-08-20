@@ -1,6 +1,7 @@
 package com.aibles.gitdiscover
 
 import android.app.Application
+import com.facebook.stetho.Stetho
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.Logger
@@ -13,6 +14,12 @@ class GDApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        setupTimber()
+        initStetho()
+
+    }
+
+    private fun setupTimber() {
         val formatStrategy: FormatStrategy = PrettyFormatStrategy.newBuilder()
             .showThreadInfo(true) // (Optional) Whether to show thread info or not. Default true
             .methodCount(1) // (Optional) How many method line to show. Default 2
@@ -35,8 +42,10 @@ class GDApplication : Application() {
         // Usage
         Timber.d("onCreate: Inside Application!")
     }
-}
 
-// Dependencies needed in build.gradle (app) file - Remember to update version if required.
-// implementation 'com.orhanobut:logger:2.2.0'
-// implementation 'com.jakewharton.timber:timber:4.7.1'
+    private fun initStetho(){
+        if(BuildConfig.DEBUG) {
+            Stetho.initializeWithDefaults(this)
+        }
+    }
+}

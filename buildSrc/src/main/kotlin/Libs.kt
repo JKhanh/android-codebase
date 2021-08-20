@@ -9,66 +9,116 @@
  *
  * See https://github.com/jmfayard/refreshVersions
  */
-object Libs {
-    const val activity_compose: String = "androidx.activity:activity-compose:_"
+public object Libs {
+    public const val activity_compose: String = "androidx.activity:activity-compose:_"
 
-    const val appcompat: String = "androidx.appcompat:appcompat:_"
+    public const val activity_ktx: String = "androidx.activity:activity-ktx:_"
 
-    const val androidx_compose_compiler_compiler: String = "androidx.compose.compiler:compiler:_"
+    public const val appcompat: String = "androidx.appcompat:appcompat:_"
 
-    const val androidx_compose_material_material: String = "androidx.compose.material:material:_"
+    public const val androidx_compose_compiler_compiler: String =
+            "androidx.compose.compiler:compiler:_"
 
-    const val ui: String = "androidx.compose.ui:ui:_"
+    public const val androidx_compose_material_material: String =
+            "androidx.compose.material:material:_"
 
-    const val ui_test_junit4: String = "androidx.compose.ui:ui-test-junit4:_"
+    public const val ui: String = "androidx.compose.ui:ui:_"
 
-    const val ui_tooling: String = "androidx.compose.ui:ui-tooling:_"
+    public const val ui_tooling_preview: String = "androidx.compose.ui:ui-tooling-preview:_"
 
-    const val ui_tooling_preview: String = "androidx.compose.ui:ui-tooling-preview:_"
+    public const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:_"
 
-    const val core_ktx: String = "androidx.core:core-ktx:_"
+    public const val core_ktx: String = "androidx.core:core-ktx:_"
 
-    const val lifecycle_livedata_core_ktx: String =
+    public const val fragment_ktx: String = "androidx.fragment:fragment-ktx:_"
+
+    public const val hilt_lifecycle_viewmodel: String = "androidx.hilt:hilt-lifecycle-viewmodel:_"
+
+    public const val lifecycle_livedata_core_ktx: String =
             "androidx.lifecycle:lifecycle-livedata-core-ktx:_"
 
-    const val lifecycle_runtime_ktx: String = "androidx.lifecycle:lifecycle-runtime-ktx:_"
+    public const val lifecycle_runtime_ktx: String = "androidx.lifecycle:lifecycle-runtime-ktx:_"
 
-    const val espresso_core: String = "androidx.test.espresso:espresso-core:_"
+    public const val lifecycle_viewmodel_ktx: String =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:_"
 
-    const val androidx_test_ext_junit: String = "androidx.test.ext:junit:_"
+    public const val navigation_fragment_ktx: String =
+            "androidx.navigation:navigation-fragment-ktx:_"
 
-    const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:_"
+    public const val navigation_safe_args_gradle_plugin: String =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:_"
 
-    const val lint_gradle: String = "com.android.tools.lint:lint-gradle:_"
+    public const val navigation_ui_ktx: String = "androidx.navigation:navigation-ui-ktx:_"
 
-    const val stetho: String = "com.facebook.stetho:stetho:_"
+    public const val room_compiler: String = "androidx.room:room-compiler:_"
 
-    const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:_"
+    public const val room_ktx: String = "androidx.room:room-ktx:_"
 
-    const val com_google_android_material_material: String =
+    public const val room_runtime: String = "androidx.room:room-runtime:_"
+
+    public const val espresso_core: String = "androidx.test.espresso:espresso-core:_"
+
+    public const val androidx_test_ext_junit: String = "androidx.test.ext:junit:_"
+
+    public const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:_"
+
+    public const val lint_gradle: String = "com.android.tools.lint:lint-gradle:_"
+
+    public const val stetho: String = "com.facebook.stetho:stetho:_"
+
+    public const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:_"
+
+    public const val com_google_android_material_material: String =
             "com.google.android.material:material:_"
 
-    const val retrofit2_kotlin_coroutines_adapter: String =
+    public const val hilt_android: String = "com.google.dagger:hilt-android:_"
+
+    public const val hilt_android_compiler: String = "com.google.dagger:hilt-android-compiler:_"
+
+    public const val hilt_android_gradle_plugin: String =
+            "com.google.dagger:hilt-android-gradle-plugin:_"
+
+    public const val retrofit2_kotlin_coroutines_adapter: String =
             "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:_"
 
-    const val timber: String = "com.jakewharton.timber:timber:_"
+    public const val retrofit2_kotlinx_serialization_converter: String =
+            "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:_"
 
-    const val logger: String = "com.orhanobut:logger:_"
+    public const val timber: String = "com.jakewharton.timber:timber:_"
 
-    const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:_"
+    public const val logger: String = "com.orhanobut:logger:_"
 
-    const val retrofit: String = "com.squareup.retrofit2:retrofit:_"
+    public const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:_"
 
-    const val de_fayard_buildsrclibs_gradle_plugin: String =
+    public const val retrofit: String = "com.squareup.retrofit2:retrofit:_"
+
+    public const val de_fayard_buildsrclibs_gradle_plugin: String =
             "de.fayard.buildSrcLibs:de.fayard.buildSrcLibs.gradle.plugin:_"
 
-    const val coil: String = "io.coil-kt:coil:_"
+    public const val coil: String = "io.coil-kt:coil:_"
 
-    const val junit_junit: String = "junit:junit:_"
+    public const val junit_junit: String = "junit:junit:_"
 
-    const val org_jacoco_ant: String = "org.jacoco:org.jacoco.ant:_"
+    public const val org_jacoco_ant: String = "org.jacoco:org.jacoco.ant:_"
 
-    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:_"
+    public const val kotlin_annotation_processing_gradle: String =
+            "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:_"
 
-    const val kotlin_stdlib_jdk7: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:_"
+    public const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:_"
+
+    public const val kotlin_scripting_compiler_embeddable: String =
+            "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:_"
+
+    public const val kotlin_serialization: String = "org.jetbrains.kotlin:kotlin-serialization:_"
+
+    public const val kotlin_stdlib_jdk7: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:_"
+
+    public const val kotlinx_coroutines_android: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:_"
+
+    public const val kotlinx_coroutines_core: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:_"
+
+    public const val kotlinx_serialization_json: String =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:_"
 }
