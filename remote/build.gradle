@@ -10,4 +10,8 @@ dependencies {
     implementation Libs.stetho_okhttp3
     implementation Libs.kotlinx_serialization_json
     implementation Libs.retrofit2_kotlinx_serialization_converter
+
+    testImplementation Libs.junit_junit
+    androidTestImplementation Libs.androidx_test_ext_junit
+    androidTestImplementation Libs.espresso_core
 }
