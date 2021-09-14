@@ -17,4 +17,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_local WHERE login LIKE :query")
     fun findUserWithName(query: String): Flow<List<UserLocal>>
+
+    @Query("SELECT * FROM user_local")
+    fun getAllUser(): Flow<List<UserLocal>>
 }
