@@ -1,6 +1,8 @@
 plugins {
     // See https://jmfayard.github.io/refreshVersions
     id 'de.fayard.refreshVersions' version '0.11.0'
+////                           # available:'0.20.0'
+////                           # available:'0.21.0'
 }
 refreshVersions {
     enableBuildSrcLibs()
@@ -10,6 +12,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
     }
 }
 rootProject.name = "Github Discover"

@@ -8,6 +8,7 @@ dependencies {
     implementation project(path: ':remote')
     implementation Dependencies.materialDesign
     implementation Libs.accompanist_systemuicontroller
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha08"
 
     implementation Libs.retrofit
     implementation Libs.kotlinx_serialization_json
@@ -19,6 +20,7 @@ dependencies {
     implementation Libs.coil_compose
     implementation Libs.lifecycle_livedata_ktx
     implementation Libs.runtime_livedata
+    implementation("com.mxalbert.sharedelements:shared-elements:0.1.0-SNAPSHOT")
 
     testImplementation Libs.junit_junit
     androidTestImplementation Libs.androidx_test_ext_junit

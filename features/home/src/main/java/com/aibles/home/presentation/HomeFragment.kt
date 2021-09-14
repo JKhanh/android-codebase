@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,10 +24,15 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import com.aibles.common.ui.GithubDiscoverTheme
@@ -34,12 +40,16 @@ import com.aibles.common.utils.Resource
 import com.aibles.home.domain.model.User
 import com.aibles.home.presentation.viewmodel.HomeViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.mxalbert.sharedelements.SharedElement
+import com.mxalbert.sharedelements.SharedElementsRoot
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment: Fragment() {
     private val viewModel by viewModels<HomeViewModel>()
+    private lateinit var navController: NavHostController
 
+    @ExperimentalMaterialApi
     @ExperimentalComposeUiApi
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,16 +60,30 @@ class HomeFragment: Fragment() {
             setContent {
                 GithubDiscoverTheme {
                     Surface(color = MaterialTheme.colors.background) {
-                        HomeScreen(viewModel)
+                        HomeController()
                     }
                 }
             }
         }
     }
 
+    @ExperimentalMaterialApi
     @ExperimentalComposeUiApi
     @Composable
-    fun HomeScreen(viewModel: HomeViewModel){
+    fun HomeController(){
+        navController = rememberNavController()
+        SharedElementsRoot {
+            NavHost(navController = navController, startDestination = "list") {
+                composable("list") { HomeScreen() }
+                composable("detail") { DetailScreen() }
+            }
+        }
+    }
+
+    @ExperimentalMaterialApi
+    @ExperimentalComposeUiApi
+    @Composable
+    fun HomeScreen(){
         val systemUiController = rememberSystemUiController()
         val useDarkIcons = MaterialTheme.colors.isLight
         var query by remember { mutableStateOf("") }
@@ -94,6 +118,7 @@ class HomeFragment: Fragment() {
         }
     }
 
+    @ExperimentalMaterialApi
     @Composable
     fun ListUser(userList: List<User>){
         LazyColumn(
@@ -109,6 +134,7 @@ class HomeFragment: Fragment() {
         }
     }
 
+    @ExperimentalMaterialApi
     @Composable
     fun UserItem(user: User){
         Card(
@@ -116,14 +142,21 @@ class HomeFragment: Fragment() {
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp),
             shape = RoundedCornerShape(10.dp),
-            contentColor = Color.LightGray,
-            elevation = 12.dp
+            elevation = 12.dp,
+            onClick = {
+                viewModel.userSelected = user
+                navController.navigate("detail")
+            }
         ) {
             Row {
-                Avatar(user.avatarUrl)
+                SharedElement(key = "avatar ${user.id}", screenKey = "home") {
+                    Avatar(user.avatarUrl, 48.dp)
+                }
                 Spacer(modifier = Modifier.size(16.dp))
                 Column(modifier = Modifier.padding(bottom = 8.dp)) {
-                    Text(user.login, fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                    SharedElement(key = "name ${user.id}", screenKey = "home") {
+                        Text(user.login, fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                    }
                     Text(text = user.htmlUrl)
                     Text(text = user.score.toString())
                 }
@@ -132,7 +165,7 @@ class HomeFragment: Fragment() {
     }
 
     @Composable
-    fun Avatar(url: String){
+    fun Avatar(url: String, size: Dp){
         Image(
             painter = rememberImagePainter(
                 data = url,
@@ -144,7 +177,26 @@ class HomeFragment: Fragment() {
             contentDescription = null,
             modifier = Modifier
                 .padding(8.dp)
-                .size(48.dp)
+                .size(size)
         )
+    }
+
+    @Composable
+    fun DetailScreen(){
+        val user = viewModel.userSelected
+        Column(
+            modifier = Modifier.fillMaxSize().padding(horizontal = 8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            SharedElement(key = "avatar ${user.id}", screenKey = "detail") {
+                Avatar(user.avatarUrl, 128.dp)
+            }
+            SharedElement(key = "name ${user.id}", screenKey = "detail") {
+                Text(user.login, fontSize = 32.sp, fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(top = 32.dp)
+                    )
+            }
+        }
     }
 }

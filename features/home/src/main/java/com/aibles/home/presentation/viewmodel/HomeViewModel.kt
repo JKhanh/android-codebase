@@ -23,6 +23,8 @@ class HomeViewModel @Inject constructor(
     private var _userList: LiveData<Resource<List<User>>> = getAllUserUseCase().asLiveData()
     val userList: LiveData<Resource<List<User>>> get() = _userList
 
+    lateinit var userSelected: User
+
     fun getAllUser(query: String?){
         viewModelScope.launch(dispatchers.main) {
             _userList = if(!query.isNullOrBlank()) queryUserUseCase(query).asLiveData()
