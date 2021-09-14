@@ -39,7 +39,18 @@ jobs:
             ./gradlew assembleRelease
       - store_artifacts:
           path: app/build/outputs/apk/release
-
+  publish-github-release:
+    docker:
+      - image: circleci/golang:1.8
+    steps:
+      - attach_workspace:
+          at: ./artifacts
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            go get github.com/tcnksm/ghr
+            VERSION=$(my-binary --version)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete 0.1 ./artifacts/
 
 workflows:
   # Below is the definition of your workflow.
