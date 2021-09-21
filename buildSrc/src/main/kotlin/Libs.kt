@@ -22,6 +22,8 @@ public object Libs {
     public const val androidx_compose_material_material: String =
             "androidx.compose.material:material:_"
 
+    public const val runtime_livedata: String = "androidx.compose.runtime:runtime-livedata:_"
+
     public const val ui: String = "androidx.compose.ui:ui:_"
 
     public const val ui_tooling_preview: String = "androidx.compose.ui:ui-tooling-preview:_"
@@ -36,6 +38,8 @@ public object Libs {
 
     public const val lifecycle_livedata_core_ktx: String =
             "androidx.lifecycle:lifecycle-livedata-core-ktx:_"
+
+    public const val lifecycle_livedata_ktx: String = "androidx.lifecycle:lifecycle-livedata-ktx:_"
 
     public const val lifecycle_runtime_ktx: String = "androidx.lifecycle:lifecycle-runtime-ktx:_"
 
@@ -60,6 +64,10 @@ public object Libs {
 
     public const val androidx_test_ext_junit: String = "androidx.test.ext:junit:_"
 
+    public const val ui_foundation: String = "androidx.ui:ui-foundation:_"
+
+    public const val ui_layout: String = "androidx.ui:ui-layout:_"
+
     public const val com_android_tools_build_gradle: String = "com.android.tools.build:gradle:_"
 
     public const val lint_gradle: String = "com.android.tools.lint:lint-gradle:_"
@@ -67,6 +75,9 @@ public object Libs {
     public const val stetho: String = "com.facebook.stetho:stetho:_"
 
     public const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:_"
+
+    public const val accompanist_systemuicontroller: String =
+            "com.google.accompanist:accompanist-systemuicontroller:_"
 
     public const val com_google_android_material_material: String =
             "com.google.android.material:material:_"
@@ -96,6 +107,8 @@ public object Libs {
             "de.fayard.buildSrcLibs:de.fayard.buildSrcLibs.gradle.plugin:_"
 
     public const val coil: String = "io.coil-kt:coil:_"
+
+    public const val coil_compose: String = "io.coil-kt:coil-compose:_"
 
     public const val junit_junit: String = "junit:junit:_"
 

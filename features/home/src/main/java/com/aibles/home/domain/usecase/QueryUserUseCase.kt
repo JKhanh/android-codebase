@@ -3,9 +3,9 @@ package com.aibles.home.domain.usecase
 import com.aibles.home.data.repository.UserRepository
 import javax.inject.Inject
 
-class GetAllUserUseCase @Inject constructor(
+class QueryUserUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
-    operator fun invoke() =
-        repository.getAllUser()
+    suspend operator fun invoke(query: String) =
+        repository.queryUser(query)
 }
